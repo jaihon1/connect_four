@@ -6,11 +6,15 @@ from connectFour.player import Player
 
 def main():
     try:
-        player2 = Player('Obi-Wan')
-        player1 = Player('Anakin')
-        env = ConnectFour(player1, player2)
+        player2 = Player(2)
+        player1 = Player(1)
+        env = ConnectFour()
         env.printBoard()
-        env.makeMove(3)
+        env.makeMove(3, player1)
+        env.printBoard()
+        env.makeMove(3, player1)
+        env.printBoard()
+        env.makeMove(3, player1)
         env.printBoard()
 
     except ValueError as error:
