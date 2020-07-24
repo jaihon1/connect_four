@@ -12,9 +12,11 @@ def main():
         env.printBoard()
         env.makeMove(3, player1)
         env.printBoard()
-        env.makeMove(3, player1)
+        env.makeMove(2, player1)
         env.printBoard()
-        env.makeMove(3, player1)
+        env.makeMove(1, player1)
+        env.printBoard()
+        env.makeMove(0, player1)
         env.printBoard()
 
     except ValueError as error:

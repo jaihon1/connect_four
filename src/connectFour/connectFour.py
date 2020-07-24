@@ -10,29 +10,29 @@ class ConnectFour():
     def printBoard(self):
         print(self.board)
 
-    def isDone(self):
+    def isWin(self, player):
         # Check horizontal locations for win
         for c in range(self.col-3):
             for r in range(self.row):
-                if board[r][c] == piece and board[r][c+1] == piece and board[r][c+2] == piece and board[r][c+3] == piece:
+                if self.board[r][c] == player.getNumber() and self.board[r][c+1] == player.getNumber() and self.board[r][c+2] == player.getNumber() and self.board[r][c+3] == player.getNumber():
                     return True
 
         # Check vertical locations for win
         for c in range(self.col):
             for r in range(self.row-3):
-                if board[r][c] == piece and board[r+1][c] == piece and board[r+2][c] == piece and board[r+3][c] == piece:
+                if self.board[r][c] == player.getNumber() and self.board[r+1][c] == player.getNumber() and self.board[r+2][c] == player.getNumber() and self.board[r+3][c] == player.getNumber():
                     return True
 
-        # Check positively sloped diaganols
+        # Check positively sloped diaganols for win
         for c in range(self.col-3):
             for r in range(self.row-3):
-                if board[r][c] == piece and board[r+1][c+1] == piece and board[r+2][c+2] == piece and board[r+3][c+3] == piece:
+                if self.board[r][c] == player.getNumber() and self.board[r+1][c+1] == player.getNumber() and self.board[r+2][c+2] == player.getNumber() and self.board[r+3][c+3] == player.getNumber():
                     return True
 
-        # Check negatively sloped diaganols
+        # Check negatively sloped diaganols for win
         for c in range(self.col-3):
             for r in range(3, self.row):
-                if board[r][c] == piece and board[r-1][c+1] == piece and board[r-2][c+2] == piece and board[r-3][c+3] == piece:
+                if self.board[r][c] == player.getNumber() and self.board[r-1][c+1] == player.getNumber() and self.board[r-2][c+2] == player.getNumber() and self.board[r-3][c+3] == player.getNumber():
                     return True
 
 
