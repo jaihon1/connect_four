@@ -1,4 +1,5 @@
 import numpy as np
+import random
 
 class ConnectFour():
     def __init__(self):
@@ -9,6 +10,9 @@ class ConnectFour():
 
     def printBoard(self):
         print(self.board)
+
+    def reset(self):
+        self.board = np.zeros((self.row, self.col))
 
     def isWin(self, player):
         # Check horizontal locations for win
@@ -36,7 +40,7 @@ class ConnectFour():
                     return True
 
 
-    def makeMove(self, column, player):
+    def move(self, column, player):
         player.makeMove(column)
 
         if column < 0 or column >= self.col:
@@ -66,6 +70,13 @@ class ConnectFour():
                                 self.board[i-1][j] = player.getNumber()
                                 return True
 
+    def leftMost_algo(self, player):
+        move = 0
+        return self.move(move, player)
+
+    def random_algo(self, player):
+        move = random.randrange(0, self.col, 1)
+        return self.move(move, player)
 
 def main():
     print("ConnectFour main.")

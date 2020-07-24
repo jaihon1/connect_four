@@ -10,14 +10,15 @@ def main():
         player1 = Player(1)
         env = ConnectFour()
         env.printBoard()
-        env.makeMove(3, player1)
+        env.random_algo(player1)
         env.printBoard()
-        env.makeMove(2, player1)
+        env.random_algo(player1)
         env.printBoard()
-        env.makeMove(1, player1)
+        env.random_algo(player1)
         env.printBoard()
-        env.makeMove(0, player1)
+        env.random_algo(player1)
         env.printBoard()
+
 
     except ValueError as error:
         print('Caught this error: ' + repr(error))
