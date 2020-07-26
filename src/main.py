@@ -9,15 +9,7 @@ def main():
         player2 = Player(2)
         player1 = Player(1)
         env = ConnectFour()
-        env.printBoard()
-        env.random_algo(player1)
-        env.printBoard()
-        env.random_algo(player1)
-        env.printBoard()
-        env.random_algo(player1)
-        env.printBoard()
-        env.random_algo(player1)
-        env.printBoard()
+        env.run(player1, player2)
 
 
     except ValueError as error:

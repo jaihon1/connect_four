@@ -70,13 +70,38 @@ class ConnectFour():
                                 self.board[i-1][j] = player.getNumber()
                                 return True
 
-    def leftMost_algo(self, player):
-        move = 0
+    def random_algo(self, player):
+        move = random.randrange(0, 1, 1)
+        print(move)
         return self.move(move, player)
 
-    def random_algo(self, player):
-        move = random.randrange(0, self.col, 1)
-        return self.move(move, player)
+    def run(self, player1, player2):
+        player_turn = player1
+
+        while True:
+            try:
+                self.random_algo(player_turn)
+                self.printBoard()
+                if(self.isWin(player_turn)):
+                    print('Win Player: ' + str(player_turn.getNumber()))
+                    return True
+                else:
+                    if(player_turn.getNumber() == 1):
+                        player_turn = player2
+                    else:
+                        player_turn = player1
+
+            except ValueError as error:
+                print('Caught this error: ' + repr(error))
+                if(player_turn.getNumber() == 1):
+                    print('Win Player: ' + str(player2.getNumber()))
+                else:
+                    print('Win Player: ' + str(player1.getNumber()))
+
+                return False
+
+
+
 
 def main():
     print("ConnectFour main.")
